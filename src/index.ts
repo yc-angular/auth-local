@@ -28,7 +28,6 @@ export class AuthLocalModule {
     return {
       ngModule: AuthLocalModule,
       providers: [
-        Http,
         {
           provide: DefaultAuthLocalPaths,
           useValue: options
