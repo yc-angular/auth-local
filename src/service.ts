@@ -31,8 +31,7 @@ export class AuthLocal {
 
   async reset(params: any): Promise<void> {
     const url = this.paths.root + this.paths.reset;
-    const data = await this.http.post(url, params)
-      .map(x => x.json())
+    await this.http.post(url, params)
       .toPromise();
   }
 
