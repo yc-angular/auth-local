@@ -84,7 +84,10 @@ gulp.task('rollup:fesm', function () {
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        '@angular/http',
+        '@yca/auth',
+        'rxjs'
       ],
 
       // Format of generated bundle
@@ -117,7 +120,10 @@ gulp.task('rollup:umd', function () {
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        '@angular/http',
+        '@yca/auth',
+        'rxjs'
       ],
 
       // Format of generated bundle

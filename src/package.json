@@ -21,8 +21,6 @@
   "jsnext:main": "yca-auth-local.js",
   "typings": "yca-auth-local.d.ts",
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "@yca/auth": "^1.0.0"
   }
 }
