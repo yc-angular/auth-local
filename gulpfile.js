@@ -86,8 +86,7 @@ gulp.task('rollup:fesm', function () {
         '@angular/core',
         '@angular/common',
         '@angular/http',
-        '@yca/auth',
-        'rxjs'
+        '@yca/auth'
       ],
 
       // Format of generated bundle
@@ -122,8 +121,7 @@ gulp.task('rollup:umd', function () {
         '@angular/core',
         '@angular/common',
         '@angular/http',
-        '@yca/auth',
-        'rxjs'
+        '@yca/auth'
       ],
 
       // Format of generated bundle
