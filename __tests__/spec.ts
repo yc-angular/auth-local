@@ -9,15 +9,6 @@ describe('Test default config', () => {
   let al: AuthLocal;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [
-        MockBackend,
-        BaseRequestOptions,
-        {
-          provide: Http,
-          useFactory: (backend, options) => new Http(backend, options),
-          deps: [MockBackend, BaseRequestOptions]
-        }
-      ],
       imports: [
         AuthModule.forRoot(),
         AuthLocalModule.forRoot()
@@ -42,15 +33,6 @@ describe('Test custom config', () => {
   let al: AuthLocal;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        MockBackend,
-        BaseRequestOptions,
-        {
-          provide: Http,
-          useFactory: (backend, options) => new Http(backend, options),
-          deps: [MockBackend, BaseRequestOptions]
-        }
-      ],
       imports: [
         AuthModule.forRoot(),
         AuthLocalModule.forRoot({
@@ -73,6 +55,9 @@ describe('Test custom config', () => {
 
   it('Should be custom', () => {
     expect(al.paths.root).toBe('http://xxx.xxx');
+    expect(al.paths.signin).toBe('1');
+    expect(al.paths.signup).toBe('2');
+    expect(al.paths.reset).toBe('3');
   })
 });
 
