@@ -1,14 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Auth } from '@yca/auth';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import { AuthLocalPathsToken } from './index';
+
 @Injectable()
 export class AuthLocal {
 
   constructor(
-    public readonly paths: AuthLocalPaths,
+    @Inject(AuthLocalPathsToken) public readonly paths: AuthLocalPaths,
     private auth: Auth,
     private http: Http
   ) { }
