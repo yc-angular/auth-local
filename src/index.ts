@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Http, HttpModule } from '@angular/http';
 import { Auth } from '@yca/auth';
@@ -12,6 +12,8 @@ export const DefaultAuthLocalPaths: AuthLocalPaths = {
   signup: '/auth/local/signup',
   reset: '/auth/local/reset'
 }
+
+export const AuthLocalPathsToken: InjectionToken<AuthLocalPaths> = new InjectionToken<AuthLocalPaths>('AUTH_LOCAL_PATHS');
 
 export function AuthLocalFactory(alp: AuthLocalPaths, auth: Auth, http: Http) {
   return new AuthLocal(alp, auth, http);
@@ -29,13 +31,13 @@ export class AuthLocalModule {
       ngModule: AuthLocalModule,
       providers: [
         {
-          provide: DefaultAuthLocalPaths,
+          provide: AuthLocalPathsToken,
           useValue: options
         },
         {
           provide: AuthLocal,
           useFactory: AuthLocalFactory,
-          deps: [DefaultAuthLocalPaths, Auth, Http]
+          deps: [AuthLocalPathsToken, Auth, Http]
         }
       ]
     };
